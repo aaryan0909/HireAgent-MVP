@@ -5,7 +5,8 @@ import SpecsView from './components/SpecsView';
 import ChatWindow from './components/ChatWindow';
 
 const App: React.FC = () => {
-  const [view, setView] = useState<'specs' | 'demo'>('specs');
+  // Set Demo as the default view
+  const [view, setView] = useState<'specs' | 'demo'>('demo');
   const [userType, setUserType] = useState<UserType>('MANAGER');
 
   return (
@@ -21,20 +22,20 @@ const App: React.FC = () => {
               </div>
               <div className="hidden sm:ml-8 sm:flex sm:space-x-8">
                 <button
-                  onClick={() => setView('specs')}
-                  className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors ${
-                    view === 'specs' ? 'border-indigo-500 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
-                  }`}
-                >
-                  Blueprint Spec
-                </button>
-                <button
                   onClick={() => setView('demo')}
                   className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors ${
                     view === 'demo' ? 'border-indigo-500 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
                   }`}
                 >
                   Interactive Demo
+                </button>
+                <button
+                  onClick={() => setView('specs')}
+                  className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors ${
+                    view === 'specs' ? 'border-indigo-500 text-slate-900' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
+                  }`}
+                >
+                  Technical Blueprint
                 </button>
               </div>
             </div>
@@ -73,13 +74,16 @@ const App: React.FC = () => {
         ) : (
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-8">
             <div className="text-center max-w-2xl">
-              <h2 className="text-3xl font-bold text-slate-900 mb-2">
+              <span className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full mb-4 uppercase tracking-widest">
+                MVP Experience
+              </span>
+              <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
                 Simulating {userType === 'MANAGER' ? 'Role Intake' : 'Candidate Pre-screening'}
               </h2>
-              <p className="text-slate-500">
+              <p className="text-lg text-slate-500 leading-relaxed">
                 {userType === 'MANAGER' 
-                  ? "As a Founder, you're telling the AI what kind of human you actually need. No buzzwords, just plain English."
-                  : "As a Candidate, you're having a quick conversation with the AI to see if you're a fit for an exclusive role."}
+                  ? "Experience how a Founder sets up a role using pure conversation. No complex forms, just text."
+                  : "Experience how candidates are screened for fit before they ever see an application link."}
               </p>
             </div>
             
@@ -93,7 +97,7 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-slate-400 text-sm">© 2024 HireAgent MVP Builder. India-First. Speed-Optimized.</p>
+          <p className="text-slate-400 text-sm">© 2024 HireAgent MVP Builder. Ready for engineering handoff.</p>
         </div>
       </footer>
     </div>
