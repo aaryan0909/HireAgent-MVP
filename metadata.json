@@ -1,0 +1,7 @@
+{
+  "name": "HireAgent MVP - India-First AI Recruiter",
+  "description": "A text-based AI hiring agent MVP designed for India-first startups, automating pre-screening through conversational intelligence.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
